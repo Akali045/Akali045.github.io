@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de recursos educativos digitales de Akali Jauregui - Licenciatura en Educación Secundaria, Matemáticas">
+    <title>Akali Jauregui - Recursos Educativos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f0f12;
+            --bg-secondary: #18181c;
+            --bg-card: #1e1e24;
+            --bg-card-hover: #26262e;
+            --border-subtle: #2a2a34;
+            --border-hover: #3a3a46;
+            
+            --text-primary: #f0f0f2;
+            --text-secondary: #a0a0a8;
+            --text-muted: #606068;
+            
+            --accent: #6366f1;
+            --accent-soft: rgba(99, 102, 241, 0.1);
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            
+            --transition: 200ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* === LAYOUT === */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 20px 60px;
+            }
+        }
+
+        /* === HEADER === */
+        .header {
+            margin-bottom: 56px;
+        }
+
+        .header-name {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(2rem, 6vw, 2.75rem);
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .header-role {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .header-institution {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* === INTRO === */
+        .intro {
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* === PROYECTOS === */
+        .section-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .project-card {
+            display: block;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            text-decoration: none;
+            transition: all var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .project-card:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .project-arrow {
+            color: var(--text-muted);
+            transition: all var(--transition);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .project-card:hover .project-arrow {
+            color: var(--text-secondary);
+            transform: translateX(4px);
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .project-tag {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 4px 10px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        /* === CONTACTO === */
+        .contact {
+            margin-top: 56px;
+            padding-top: 48px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+        }
+
+        .contact-email {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .contact-email:hover {
+            color: var(--text-primary);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            margin-top: 64px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1 class="header-name">Akali Jauregui</h1>
+            <p class="header-role">Licenciatura en Educación Secundaria — Matemáticas</p>
+            <p class="header-institution">Escuela Normal Superior de Jalisco</p>
+        </header>
+
+        <section class="intro">
+            <p class="intro-text">
+                Este sitio reúne recursos educativos digitales que he desarrollado como parte de mi formación docente. Son herramientas interactivas pensadas para facilitar el aprendizaje de conceptos matemáticos y científicos.
+            </p>
+        </section>
+
+        <section class="projects">
+            <h2 class="section-title">Proyectos</h2>
+            <div class="projects-grid">
+                <a href="https://akali045.github.io/RGB-Master/" class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">RGB Master</span>
+                        <svg class="project-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </div>
+                    <p class="project-description">
+                        Recurso interactivo para comprender el modelo de color RGB y cómo las pantallas digitales crean colores mediante síntesis aditiva de luz.
+                    </p>
+                    <span class="project-tag">STEAM</span>
+                </a>
+
+                <a href="https://akali045.github.io/Numeros-Primos/" class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Números Primos</span>
+                        <svg class="project-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </div>
+                    <p class="project-description">
+                        Sitio de divulgación matemática sobre números primos: definición, ejemplos, historia y su importancia en las matemáticas.
+                    </p>
+                    <span class="project-tag">Matemáticas</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="contact">
+            <p class="contact-label">Contacto</p>
+            <a href="mailto:angel.jauregui229@jaliscoedu.mx" class="contact-email">
+                angel.jauregui229@jaliscoedu.mx
+            </a>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Akali Jauregui</p>
+        </footer>
+    </main>
+</body>
+</html>
