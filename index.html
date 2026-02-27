@@ -179,6 +179,16 @@
             letter-spacing: 0.3px;
         }
 
+        /* Tarjeta "Otros" con estilo diferenciado */
+        .project-card.card-otros {
+            border-style: dashed;
+        }
+
+        .project-card.card-otros .project-tag {
+            background: rgba(160, 160, 168, 0.1);
+            color: var(--text-muted);
+        }
+
         /* === CONTACTO === */
         .contact {
             margin-top: 56px;
@@ -233,16 +243,16 @@
             <div class="projects-grid">
                 <a href="https://akali045.github.io/gestion-pedagogica/" class="project-card">
                     <div class="project-header">
-                    <span class="project-title">Sistema de Gestión Pedagógica</span>
+                        <span class="project-title">Sistema de Gestión Pedagógica</span>
                         <svg class="project-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-            </div>
-            <p class="project-description">
-                Herramienta web para docentes de secundaria que facilita la gestión de grupos, seguimiento de alumnos y PDAs basados en el Programa Sintético de Matemáticas.
-            </p>
-            <span class="project-tag">Educación</span>
-        </a>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </div>
+                    <p class="project-description">
+                        Herramienta web para docentes de secundaria que facilita la gestión de grupos, seguimiento de alumnos y PDAs basados en el Programa Sintético de Matemáticas.
+                    </p>
+                    <span class="project-tag">Educación</span>
+                </a>
 
                 <a href="https://akali045.github.io/RGB-Master/" class="project-card">
                     <div class="project-header">
@@ -270,7 +280,7 @@
                     <span class="project-tag">Matemáticas</span>
                 </a>
 
-                 <a href="https://akali045.github.io/Fracciones-Interactivas/" class="project-card">
+                <a href="https://akali045.github.io/Fracciones-Interactivas/" class="project-card">
                     <div class="project-header">
                         <span class="project-title">Fracciones Interactivas</span>
                         <svg class="project-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -281,6 +291,19 @@
                         Herramienta de manipulación visual para aprender suma de fracciones y fracciones equivalentes. Permite arrastrar, combinar y separar piezas para resolver desafíos.
                     </p>
                     <span class="project-tag">Matemáticas</span>
+                </a>
+
+                <a href="https://akali045.github.io/otros/" class="project-card card-otros">
+                    <div class="project-header">
+                        <span class="project-title">Otros recursos</span>
+                        <svg class="project-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </div>
+                    <p class="project-description">
+                        Colección de recursos educativos breves: organizadores gráficos, cuadros sinópticos, fichas y materiales de apoyo para distintas asignaturas y cursos.
+                    </p>
+                    <span class="project-tag">Varios</span>
                 </a>
             </div>
         </section>
@@ -297,6 +320,4 @@
         </footer>
     </main>
 </body>
-
 </html>
-
