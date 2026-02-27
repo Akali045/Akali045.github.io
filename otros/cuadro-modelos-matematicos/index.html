@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelos Matemáticos — Cuadro Sinóptico</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1923;
+    --paper: #f7f3ec;
+    --accent: #c0392b;
+    --accent2: #1a5276;
+    --accent3: #1e8449;
+    --accent4: #7d3c98;
+    --accent5: #b7770d;
+    --line: #c8bfb0;
+    --branch: #7f8c8d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    padding: 40px 20px 60px;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  .header-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--branch);
+    margin-bottom: 6px;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .header h1 span {
+    color: var(--accent);
+  }
+
+  .header-line {
+    width: 80px;
+    height: 3px;
+    background: var(--accent);
+    margin: 14px auto 0;
+  }
+
+  /* SINOPTIC WRAPPER */
+  .sinoptic {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* SECTION BLOCK */
+  .section {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    animation: fadeIn 0.6s ease both;
+  }
+
+  .section:nth-child(1) { animation-delay: 0.1s; }
+  .section:nth-child(2) { animation-delay: 0.2s; }
+  .section:nth-child(3) { animation-delay: 0.3s; }
+  .section:nth-child(4) { animation-delay: 0.4s; }
+  .section:nth-child(5) { animation-delay: 0.5s; }
+  .section:nth-child(6) { animation-delay: 0.6s; }
+  .section:nth-child(7) { animation-delay: 0.7s; }
+
+  /* SECTION TITLE */
+  .sec-title {
+    min-width: 200px;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 16px;
+    border-radius: 8px 0 0 8px;
+    position: relative;
+    text-align: center;
+  }
+
+  .sec-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* COLOR THEMES */
+  .c1 .sec-title { background: var(--accent); }
+  .c2 .sec-title { background: var(--accent2); }
+  .c3 .sec-title { background: var(--accent3); }
+  .c4 .sec-title { background: var(--accent4); }
+  .c5 .sec-title { background: var(--accent5); }
+  .c6 .sec-title { background: #2e4057; }
+  .c7 .sec-title { background: #c0392b; }
+
+  /* BRACKET connector */
+  .bracket {
+    width: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    flex-shrink: 0;
+  }
+
+  .bracket-line {
+    flex: 1;
+    border-right: 3px solid var(--line);
+    border-top: 3px solid var(--line);
+    border-bottom: 3px solid var(--line);
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* ITEMS AREA */
+  .items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  .item {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* ITEM LABEL */
+  .item-label {
+    min-width: 170px;
+    max-width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    line-height: 1.3;
+    border-radius: 6px 0 0 6px;
+  }
+
+  .c1 .item-label { background: #e74c3c; }
+  .c2 .item-label { background: #2471a3; }
+  .c3 .item-label { background: #27ae60; }
+  .c4 .item-label { background: #9b59b6; }
+  .c5 .item-label { background: #d4ac0d; }
+  .c6 .item-label { background: #3d5a80; }
+  .c7 .item-label { background: #e74c3c; }
+
+  /* Sub-bracket */
+  .sub-bracket {
+    width: 16px;
+    flex-shrink: 0;
+  }
+
+  .sub-bracket-line {
+    height: 100%;
+    border-right: 2px solid var(--line);
+    border-top: 2px solid var(--line);
+    border-bottom: 2px solid var(--line);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* CONTENT BOX */
+  .content-box {
+    flex: 1;
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  .content-box p {
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .content-box .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 500;
+    background: #f0ede8;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-right: 4px;
+    margin-bottom: 3px;
+    color: #555;
+    border: 1px solid #ddd;
+  }
+
+  .content-box .definition {
+    font-size: 12px;
+    color: #5a5a5a;
+    font-style: italic;
+    border-left: 3px solid var(--line);
+    padding-left: 10px;
+    margin-top: 4px;
+  }
+
+  /* Simpler single-level sections */
+  .simple-content {
+    flex: 1;
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .chip {
+    display: inline-flex;
+    flex-direction: column;
+    background: #f9f6f1;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 13px;
+    min-width: 130px;
+    flex: 1;
+  }
+
+  .chip-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .chip-desc {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.45;
+  }
+
+  /* BACK BUTTON */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--branch);
+    text-decoration: none;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 16px;
+    background: #fff;
+    transition: all 0.2s ease;
+    margin-bottom: 32px;
+  }
+
+  .back-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: #fff5f4;
+  }
+
+  .back-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    text-align: center;
+    font-size: 11px;
+    color: var(--branch);
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-12px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .sec-title { min-width: 120px; max-width: 120px; }
+    .item-label { min-width: 110px; max-width: 110px; }
+    .sec-title h2 { font-size: 11px; }
+    .item-label { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="https://akali045.github.io/" class="back-btn">
+  <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  Volver al portafolio
+</a>
+
+<div class="header">
+  <div class="header-label">Cuadro Sinóptico</div>
+  <h1>Modelos <span>Matemáticos</span></h1>
+  <div class="header-line"></div>
+</div>
+
+<div class="sinoptic">
+
+  <!-- 1. CONCEPTO -->
+  <div class="section c1">
+    <div class="sec-title"><h2>Concepto</h2></div>
+    <div class="bracket"><div class="bracket-line"></div></div>
+    <div class="items">
+      <div class="item">
+        <div class="simple-content">
+          <div class="chip">
+            <span class="chip-title">Definición</span>
+            <span class="chip-desc">Expresión formal, simbólica y abstracta de las relaciones entre los componentes de un fenómeno del mundo real.</span>
+          </div>
+          <div class="chip">
+            <span class="chip-title">Expresión</span>
+            <span class="chip-desc">Puede ser una simple ecuación o un conjunto complejo de funciones interconectadas.</span>
+          </div>
+          <div class="chip">
+            <span class="chip-title">Lenguaje</span>
+            <span class="chip-desc">Describe sistemas de manera objetiva y sin ambigüedades mediante el lenguaje matemático.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CARACTERÍSTICAS -->
+  <div class="section c2">
+    <div class="sec-title"><h2>Características Deseables</h2></div>
+    <div class="bracket"><div class="bracket-line"></div></div>
+    <div class="items">
+      <div class="item">
+        <div class="item-label">Parsimonia</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Prioriza la <strong>simplicidad</strong>, evitando el uso innecesario de múltiples parámetros.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">Modestia</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>El modelo no aspira a imitar la realidad a la perfección, sino a <strong>resaltar los aspectos de interés</strong>.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">Exactitud</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Reproduce el funcionamiento del sistema con <strong>valores similares a los observados</strong> en la realidad.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">Verificabilidad</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Permite <strong>comparar los resultados teóricos con datos reales</strong>.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. COMPONENTES -->
+  <div class="section c3">
+    <div class="sec-title"><h2>Componentes Estructurales</h2></div>
+    <div class="bracket"><div class="bracket-line"></div></div>
+    <div class="items">
+      <div class="item">
+        <div class="item-label">Variables</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box">
+          <p>Características de un fenómeno capaces de cambiar o adquirir distintos valores.</p>
+          <span class="tag">De estado / Niveles → cantidad almacenada</span>
+          <span class="tag">Flujos → lo que viaja entre componentes</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-label">Parámetros y constantes</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Valores <strong>fijos</strong> que anteceden a las variables en una ecuación; no cambian durante la simulación.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">Restricciones y condiciones de contorno</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box">
+          <p><strong>Restricciones:</strong> límites lógicos del sistema.</p>
+          <p><strong>Condiciones de contorno:</strong> fuentes y sumideros externos.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-label">Representaciones</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box">
+          <span class="tag">Ecuaciones físicas (diferenciales)</span>
+          <span class="tag">Ecuaciones empíricas (estadísticas / regresión)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. FASES -->
+  <div class="section c4">
+    <div class="sec-title"><h2>Fases de Modelización</h2></div>
+    <div class="bracket"><div class="bracket-line"></div></div>
+    <div class="items">
+      <div class="item">
+        <div class="item-label">① Identificación</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Define <strong>límites del problema</strong>, escala, componentes y ecuaciones representativas (modelo conceptual).</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">② Calibración</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Determina el <strong>valor exacto de los parámetros</strong>.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">③ Validación</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Compara resultados del modelo con <strong>valores reales históricos</strong> para evaluar el margen de error.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">④ Simulación</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Proyecta <strong>escenarios futuros</strong> una vez validado el modelo.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">⑤ Análisis de sensibilidad</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Altera ligeramente los parámetros para observar la <strong>influencia de cada uno</strong> sobre el resultado final.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CLASIFICACIÓN ALEATORIEDAD -->
+  <div class="section c5">
+    <div class="sec-title"><h2>Clasificación por Aleatoriedad</h2></div>
+    <div class="bracket"><div class="bracket-line"></div></div>
+    <div class="items">
+      <div class="item">
+        <div class="item-label">Deterministas</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>El mismo conjunto de entradas produce <strong>siempre el mismo resultado exacto</strong>. No incluyen propiedades aleatorias; los valores se asumen conocidos.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">Estocásticos</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Incluyen <strong>generadores de procesos aleatorios</strong>. Las salidas pueden variar; se enfocan en probabilidades y rangos de variación esperables.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. CLASIFICACIÓN CAUSAL -->
+  <div class="section c6">
+    <div class="sec-title"><h2>Clasificación por Base Causal (Cajas)</h2></div>
+    <div class="bracket"><div class="bracket-line"></div></div>
+    <div class="items">
+      <div class="item">
+        <div class="item-label">📦 Caja Negra (Empíricos)</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Relaciones netamente <strong>estadísticas</strong>. Alto poder predictivo, pero no explican el "porqué" ni se basan en leyes universales.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">🔲 Caja Blanca (Físicos)</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Se rigen por <strong>leyes físicas comprobadas</strong> (conservación de materia y energía). Requieren alto conocimiento del sistema.</p></div>
+      </div>
+      <div class="item">
+        <div class="item-label">🔳 Caja Gris (Heurísticos)</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box"><p>Opción <strong>intermedia</strong>: partes empíricas integradas con principios físicos lógicos. Basados en interpretaciones probables.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CLASIFICACIÓN ESPACIO-TIEMPO Y APLICACIÓN -->
+  <div class="section c7">
+    <div class="sec-title"><h2>Clasificación por Espacio, Tiempo y Aplicación</h2></div>
+    <div class="bracket"><div class="bracket-line"></div></div>
+    <div class="items">
+      <div class="item">
+        <div class="item-label">Por Espacio</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box">
+          <span class="tag">Agregados → área de estudio como un todo</span>
+          <span class="tag">Distribuidos → área dividida en celdillas con datos propios</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-label">Por Tiempo</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box">
+          <span class="tag">Estáticos → resultado consolidado para un periodo</span>
+          <span class="tag">Dinámicos → comportamiento variable a lo largo del tiempo</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-label">Por Aplicación</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box">
+          <span class="tag">Descriptivos / Simulación → predicen escenarios</span>
+          <span class="tag">De control → ajustan variables para mantener estabilidad</span>
+          <span class="tag">Optimización → buscan la solución más eficiente</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-label">Por Estructura Algebraica</div>
+        <div class="sub-bracket"><div class="sub-bracket-line"></div></div>
+        <div class="content-box">
+          <span class="tag">Numéricos / Cualitativos</span>
+          <span class="tag">Polinomiales (lineales, cuadráticos)</span>
+          <span class="tag">Trigonométricos</span>
+          <span class="tag">Exponenciales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Fuente: Autor Desconocido (s.f.). Tema 4: Modelos y modelización · MARLON VILLA VILLA (2022). Modelos Matemáticos y su clasificación.
+</div>
+
+</body>
+</html>
