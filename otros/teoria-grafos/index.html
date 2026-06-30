@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo de Grafos | Aprende, Explora, Desafía</title>
+    <!-- Fuentes: Inter para texto general, Outfit para títulos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navegación principal -->
+        <nav class="glass-nav">
+            <div class="logo">Mundo de <span>Grafos</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="active" data-section="inicio">Inicio</a></li>
+                <li><a href="#aprende" data-section="aprende">Aprende</a></li>
+                <li><a href="#explora" data-section="explora">Explora</a></li>
+                <li><a href="#desafio" data-section="desafio">Desafío</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-content">
+            <!-- Sección: Inicio / Hero -->
+            <section id="inicio" class="section-view active">
+                <div class="hero-content">
+                    <h1>Descubre la <span class="text-gradient">Red Invisible</span></h1>
+                    <p class="subtitle">Desde tus amigos en redes sociales hasta las calles de tu ciudad. Todo está conectado. Aprende qué son los grafos y cómo modelan nuestro mundo.</p>
+                    
+                    <div class="cards-container">
+                        <div class="hero-card" onclick="document.querySelector('[data-section=\'aprende\']').click()">
+                            <div class="card-icon">📚</div>
+                            <h3>Aprende</h3>
+                            <p>Domina los conceptos clave a través de analogías simples del día a día.</p>
+                        </div>
+                        <div class="hero-card" onclick="document.querySelector('[data-section=\'explora\']').click()">
+                            <div class="card-icon">🔬</div>
+                            <h3>Explora</h3>
+                            <p>Crea tus propios grafos interactivos, conecta nodos y observa sus propiedades.</p>
+                        </div>
+                        <div class="hero-card" onclick="document.querySelector('[data-section=\'desafio\']').click()">
+                            <div class="card-icon">🏆</div>
+                            <h3>Desafío</h3>
+                            <p>Pon a prueba tu mente. Encuentra la ruta más corta en el mapa de transporte.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Aprende -->
+            <section id="aprende" class="section-view hidden">
+                <div class="content-wrapper">
+                    <h2>Los Bloques de Construcción</h2>
+                    <p class="intro-text">La teoría de grafos suena complicada, pero en realidad es la forma matemática de dibujar conexiones.</p>
+                    
+                    <div class="concept-grid">
+                        <div class="concept-card">
+                            <h3>1. Vértices y Aristas (Las Ciudades y Carreteras)</h3>
+                            <p>En la teoría de grafos, las "ciudades" se llaman formalmente <strong>Vértices</strong> (o nodos), y las "carreteras" que las conectan se llaman <strong>Aristas</strong>. Un grafo es simplemente un conjunto de vértices unidos por aristas.</p>
+                            <div class="visual-svg-container">
+                                <svg viewBox="0 0 400 150" width="100%" height="100%">
+                                    <line x1="100" y1="75" x2="300" y2="75" stroke="rgba(148, 163, 184, 0.5)" stroke-width="4"/>
+                                    <circle cx="100" cy="75" r="15" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+                                    <circle cx="300" cy="75" r="15" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+                                    <text x="100" y="115" fill="#f8fafc" font-size="14" text-anchor="middle" font-weight="bold">Vértice A</text>
+                                    <text x="300" y="115" fill="#f8fafc" font-size="14" text-anchor="middle" font-weight="bold">Vértice B</text>
+                                    <text x="200" y="60" fill="#10b981" font-size="14" text-anchor="middle" font-weight="bold">Arista</text>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="concept-card">
+                            <h3>2. El Grado (Tu Círculo de Amigos)</h3>
+                            <p>Si un grafo representa una red social, el <strong>Grado</strong> de un vértice es simplemente el número de conexiones que tiene (cuántos amigos directos tiene). Matemáticamente, es el número de aristas que inciden en él.</p>
+                            <div class="visual-svg-container">
+                                <svg viewBox="0 0 400 150" width="100%" height="100%">
+                                    <line x1="200" y1="75" x2="100" y2="30" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <line x1="200" y1="75" x2="100" y2="120" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <line x1="200" y1="75" x2="300" y2="30" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <line x1="200" y1="75" x2="300" y2="120" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <circle cx="100" cy="30" r="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+                                    <circle cx="100" cy="120" r="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+                                    <circle cx="300" cy="30" r="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+                                    <circle cx="300" cy="120" r="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+                                    <circle cx="200" cy="75" r="20" fill="#1e293b" stroke="#06b6d4" stroke-width="4"/>
+                                    <text x="200" y="80" fill="#f8fafc" font-size="16" text-anchor="middle" font-weight="bold">4</text>
+                                    <text x="200" y="125" fill="#06b6d4" font-size="12" text-anchor="middle" font-weight="bold">Grado = 4</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h3>3. Grafos Dirigidos vs No Dirigidos</h3>
+                            <p>Un <strong>Grafo No Dirigido</strong> tiene aristas que son como calles de doble sentido (la conexión es mutua). Un <strong>Grafo Dirigido</strong> tiene aristas con dirección (flechas), como calles de un solo sentido o seguir a alguien en Instagram.</p>
+                            <div class="visual-svg-container">
+                                <svg viewBox="0 0 400 150" width="100%" height="100%">
+                                    <defs>
+                                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                            <polygon points="0 0, 10 3.5, 0 7" fill="#06b6d4" />
+                                        </marker>
+                                    </defs>
+                                    <!-- No Dirigido -->
+                                    <line x1="60" y1="75" x2="160" y2="75" stroke="#10b981" stroke-width="4"/>
+                                    <circle cx="60" cy="75" r="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+                                    <circle cx="160" cy="75" r="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+                                    <text x="110" y="110" fill="#10b981" font-size="12" text-anchor="middle" font-weight="bold">No Dirigido</text>
+
+                                    <!-- Dirigido -->
+                                    <line x1="240" y1="75" x2="330" y2="75" stroke="#06b6d4" stroke-width="4" marker-end="url(#arrowhead)"/>
+                                    <circle cx="240" cy="75" r="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+                                    <circle cx="340" cy="75" r="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+                                    <text x="290" y="110" fill="#06b6d4" font-size="12" text-anchor="middle" font-weight="bold">Dirigido</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h3>4. Grafos Ponderados (Tiempo y Costo)</h3>
+                            <p>En un <strong>Grafo Ponderado</strong>, cada arista tiene un "peso" o valor asociado. Este peso suele representar la distancia física, el tiempo de viaje o el costo monetario para ir de un vértice a otro.</p>
+                            <div class="visual-svg-container">
+                                <svg viewBox="0 0 400 150" width="100%" height="100%">
+                                    <line x1="100" y1="75" x2="300" y2="75" stroke="#f59e0b" stroke-width="5"/>
+                                    <circle cx="100" cy="75" r="15" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+                                    <circle cx="300" cy="75" r="15" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+                                    <rect x="175" y="60" width="50" height="30" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="5"/>
+                                    <text x="200" y="80" fill="#f8fafc" font-size="14" text-anchor="middle" font-weight="bold">15 min</text>
+                                    <text x="200" y="115" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="bold">Arista con Peso</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h3>5. Caminos y Ciclos (Rutas y Bucles)</h3>
+                            <p>Un <strong>Camino</strong> es una secuencia de vértices conectados que puedes recorrer sin repetir aristas. Si un camino te lleva de vuelta exactamente al vértice donde empezaste, has completado un <strong>Ciclo</strong>.</p>
+                            <div class="visual-svg-container">
+                                <svg viewBox="0 0 400 150" width="100%" height="100%">
+                                    <!-- Camino a la izquierda -->
+                                    <line x1="50" y1="75" x2="100" y2="75" stroke="#06b6d4" stroke-width="4"/>
+                                    <line x1="100" y1="75" x2="130" y2="40" stroke="#06b6d4" stroke-width="4"/>
+                                    <line x1="130" y1="40" x2="180" y2="75" stroke="#06b6d4" stroke-width="4"/>
+                                    <circle cx="50" cy="75" r="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+                                    <circle cx="100" cy="75" r="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+                                    <circle cx="130" cy="40" r="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+                                    <circle cx="180" cy="75" r="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+                                    <text x="115" y="110" fill="#06b6d4" font-size="12" text-anchor="middle" font-weight="bold">Camino</text>
+
+                                    <!-- Ciclo a la derecha -->
+                                    <line x1="250" y1="40" x2="350" y2="40" stroke="#10b981" stroke-width="4"/>
+                                    <line x1="350" y1="40" x2="300" y2="100" stroke="#10b981" stroke-width="4"/>
+                                    <line x1="300" y1="100" x2="250" y2="40" stroke="#10b981" stroke-width="4"/>
+                                    <circle cx="250" cy="40" r="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+                                    <circle cx="350" cy="40" r="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+                                    <circle cx="300" cy="100" r="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+                                    <text x="300" y="130" fill="#10b981" font-size="12" text-anchor="middle" font-weight="bold">Ciclo</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h3>6. Componentes Conexas y Árboles</h3>
+                            <p>Si puedes viajar a todos los vértices, el grafo es <strong>Conexo</strong>. Si hay partes aisladas ("islas"), se llaman <strong>Componentes Conexas</strong>. Un <strong>Árbol</strong> es un grafo conexo que no tiene ningún ciclo (¡sin rutas redundantes!).</p>
+                            <div class="visual-svg-container">
+                                <svg viewBox="0 0 400 150" width="100%" height="100%">
+                                    <!-- Componente 1 (Árbol) -->
+                                    <line x1="50" y1="50" x2="100" y2="90" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <line x1="100" y1="90" x2="150" y2="50" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <line x1="100" y1="90" x2="100" y2="130" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <circle cx="50" cy="50" r="10" fill="#1e293b" stroke="#6366f1" stroke-width="3"/>
+                                    <circle cx="100" cy="90" r="10" fill="#1e293b" stroke="#6366f1" stroke-width="3"/>
+                                    <circle cx="150" cy="50" r="10" fill="#1e293b" stroke="#6366f1" stroke-width="3"/>
+                                    <circle cx="100" cy="130" r="10" fill="#1e293b" stroke="#6366f1" stroke-width="3"/>
+                                    <text x="100" y="25" fill="#6366f1" font-size="12" text-anchor="middle" font-weight="bold">Componente 1 (Árbol)</text>
+
+                                    <!-- Componente 2 (Isla / Desconectado) -->
+                                    <line x1="280" y1="60" x2="330" y2="60" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <line x1="330" y1="60" x2="305" y2="100" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <line x1="305" y1="100" x2="280" y2="60" stroke="rgba(148, 163, 184, 0.5)" stroke-width="3"/>
+                                    <circle cx="280" cy="60" r="10" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+                                    <circle cx="330" cy="60" r="10" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+                                    <circle cx="305" cy="100" r="10" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+                                    <text x="305" y="25" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="bold">Componente 2 (Isla)</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-footer">
+                        <button class="btn-primary" onclick="document.querySelector('[data-section=\'explora\']').click()">¡Hora de crear! Ve a Explorar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Explora (Sandbox) -->
+            <section id="explora" class="section-view hidden">
+                <div class="sandbox-container">
+                    <div class="sandbox-sidebar glass-panel">
+                        <h3>Herramientas</h3>
+                        <p class="instruction">Haz clic en el lienzo vacío para crear nodos.<br><br><strong>Elige una herramienta:</strong></p>
+                        <div class="edit-tools" style="display: flex; gap: 10px; margin-bottom: 1.5rem;">
+                            <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="sandbox-tool" value="move" checked> Mover
+                            </label>
+                            <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="sandbox-tool" value="edge"> Conectar
+                            </label>
+                            <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="sandbox-tool" value="delete"> Borrar
+                            </label>
+                        </div>
+                        
+                        <div class="mode-selector">
+                            <h4>Modos de Visualización</h4>
+                            <button class="mode-btn active" data-mode="normal">Vista Normal</button>
+                            <button class="mode-btn" data-mode="grado">Ver Grados</button>
+                            <button class="mode-btn" data-mode="camino">Camino más corto</button>
+                            <button class="mode-btn" data-mode="conectividad">Conectividad</button>
+                            <button class="mode-btn" data-mode="ciclos">Detección de Árbol/Ciclo</button>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="btn-clear" class="btn-secondary">Borrar Todo</button>
+                        </div>
+
+                        <div class="stats-panel">
+                            <h4>Estadísticas</h4>
+                            <ul>
+                                <li>Nodos: <span id="stat-nodes">0</span></li>
+                                <li>Aristas: <span id="stat-edges">0</span></li>
+                                <li>¿Es conexo?: <span id="stat-connected">-</span></li>
+                                <li>Estructura: <span id="stat-tree">-</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sandbox-canvas-wrapper">
+                        <canvas id="graphCanvas"></canvas>
+                        <div id="sandbox-overlay-msg" class="overlay-msg hidden"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="desafio" class="section-view hidden">
+                <!-- MENÚ DESAFÍO -->
+                <div id="desafio-menu" class="challenge-menu active">
+                    <div class="content-wrapper text-center">
+                        <h2>Elige tu Desafío</h2>
+                        <p class="subtitle">Pon a prueba tu lógica con estos dos minijuegos de teoría de grafos.</p>
+                        
+                        <div class="cards-container" style="margin-top: 2rem;">
+                            <!-- Tarjeta Viajero Óptimo -->
+                            <div class="hero-card challenge-card" data-game="viajero">
+                                <div class="card-icon">🗺️</div>
+                                <h3>El Viajero Óptimo</h3>
+                                <p>Encuentra la ruta más corta entre dos puntos, evitando caminos largos.</p>
+                                <button class="btn-primary" style="margin-top: 1rem; width: 100%;">Jugar</button>
+                            </div>
+                            
+                            <!-- Tarjeta Un Solo Trazo -->
+                            <div class="hero-card challenge-card" data-game="euler">
+                                <div class="card-icon">✏️</div>
+                                <h3>Un Solo Trazo</h3>
+                                <p>Recorre todas las aristas sin levantar el lápiz. El clásico problema de Königsberg.</p>
+                                <button class="btn-primary" style="margin-top: 1rem; width: 100%;">Jugar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JUEGO 1: EL VIAJERO ÓPTIMO -->
+                <div id="viajero-container" class="challenge-container hidden">
+                    <div class="challenge-header">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <button class="btn-secondary btn-back-menu">← Volver</button>
+                            <h2>El Viajero Óptimo</h2>
+                        </div>
+                        <div class="challenge-stats">
+                            <div class="stat-pill">Ronda: <span id="round-counter">1 / 3</span></div>
+                            <div class="stat-pill">Puntos: <span id="total-score">0</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-layout">
+                        <div class="challenge-map-wrapper">
+                            <canvas id="challengeCanvas"></canvas>
+                            <div id="challenge-screen" class="glass-overlay">
+                                <h3>¡Preparado!</h3>
+                                <p>Encuentra la ruta más corta (suma de tiempos) entre el nodo <span class="origin-badge">Origen</span> y el <span class="dest-badge">Destino</span>.</p>
+                                <!-- Selector de Dificultad añadido -->
+                                <div class="difficulty-selector" style="margin: 1rem 0;">
+                                    <label>Dificultad:</label>
+                                    <select id="dijkstra-difficulty" style="padding: 0.5rem; border-radius: 5px; background: var(--panel-bg); color: var(--text-light); border: 1px solid var(--border-color);">
+                                        <option value="facil">Fácil</option>
+                                        <option value="medio">Medio</option>
+                                        <option value="dificil">Difícil</option>
+                                    </select>
+                                </div>
+                                <button id="btn-start-challenge" class="btn-primary">Empezar Ronda</button>
+                            </div>
+                        </div>
+                        <div class="challenge-sidebar glass-panel">
+                            <h3>Tu Ruta</h3>
+                            <p class="instruction">Haz clic en los nodos adyacentes para armar tu ruta.</p>
+                            <ul id="user-route-list" class="route-list">
+                                <!-- Llenado por JS -->
+                            </ul>
+                            <div class="route-total">Tiempo acumulado: <span id="user-total-weight">0</span> min</div>
+                            
+                            <div class="challenge-actions">
+                                <button id="btn-undo-move" class="btn-secondary" disabled>Deshacer</button>
+                                <button id="btn-submit-route" class="btn-primary" disabled>Confirmar Ruta</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JUEGO 2: UN SOLO TRAZO -->
+                <div id="euler-container" class="challenge-container hidden">
+                    <div class="challenge-header">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <button class="btn-secondary btn-back-menu">← Volver</button>
+                            <h2>Un Solo Trazo</h2>
+                        </div>
+                        <div class="challenge-stats">
+                            <div class="stat-pill">Aristas: <span id="euler-edges-counter">0 / 0</span></div>
+                            <div class="stat-pill">Intentos: <span id="euler-fails">0</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contexto Histórico -->
+                    <div class="context-banner" style="background: rgba(15, 23, 42, 0.7); padding: 1rem; border-radius: 10px; border-left: 4px solid var(--secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+                        <strong>Los Puentes de Königsberg:</strong> En 1736, Euler demostró matemáticamente cuándo es posible recorrer todas las partes de una ciudad sin pasar dos veces por el mismo puente. ¡Intenta resolver estos grafos sin repetir aristas!
+                    </div>
+                    
+                    <div class="challenge-layout">
+                        <div class="challenge-map-wrapper">
+                            <canvas id="eulerCanvas"></canvas>
+                            <div id="euler-screen" class="glass-overlay">
+                                <h3>¿Puedes recorrerlo?</h3>
+                                <p>Recorre todas las aristas sin levantar el lápiz.</p>
+                                <div class="difficulty-selector" style="margin: 1rem 0;">
+                                    <label>Dificultad:</label>
+                                    <select id="euler-difficulty" style="padding: 0.5rem; border-radius: 5px; background: var(--panel-bg); color: var(--text-light); border: 1px solid var(--border-color);">
+                                        <option value="facil">Fácil (Circuito)</option>
+                                        <option value="medio">Medio (Camino revelado)</option>
+                                        <option value="dificil">Difícil (Camino oculto)</option>
+                                    </select>
+                                </div>
+                                <button id="btn-start-euler" class="btn-primary">Generar Puzzle</button>
+                            </div>
+                            
+                            <!-- Overlay para "Sin Salida" / "Éxito" (controlado desde JS) -->
+                            <div id="euler-result-screen" class="glass-overlay hidden">
+                                <!-- Contenido dinámico -->
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-sidebar glass-panel">
+                            <h3>Tu Recorrido</h3>
+                            <p class="instruction">Haz clic en un nodo para comenzar (o sigue el resaltado) y luego en nodos adyacentes.</p>
+                            
+                            <div class="challenge-actions" style="margin-top: 2rem;">
+                                <button id="btn-euler-hint" class="btn-secondary" style="border-color: var(--warning); color: var(--warning);">💡 Pista</button>
+                                <button id="btn-euler-undo" class="btn-secondary" disabled>Deshacer paso</button>
+                                <button id="btn-euler-restart" class="btn-secondary">Reintentar (Mismo)</button>
+                                <button id="btn-euler-new" class="btn-primary" style="margin-top: 1rem;">Nuevo Puzzle</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/grafo.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/modos.js"></script>
+    <script src="js/dijkstra.js"></script>
+    <script src="js/desafio.js"></script>
+    <script src="js/euler.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
